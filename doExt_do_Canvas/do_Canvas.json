@@ -1,0 +1,367 @@
+{
+  "ID": "do_Canvas",
+  "IsContainer": "0",
+  "Type": "UI",
+  "UIType": "Layout",
+  "Name": "画布",
+  "Version": "Internal",
+  "Description": "支持2D图形处理，可以画点，线，多边形，文字，图片",
+  "Icon": "",
+  "BBS": "",
+  "Keyword": "",
+  "IOS": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Android": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "strokeCap",
+      "Name": "笔触样式",
+      "Type": "Number",
+      "Type_JavaScript": "Number",
+      "DefaultValue": "0",
+      "EditType": "1",
+      "Group": "",
+      "Description": "支持0：正方形,1：圆，默认值为0",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "0",
+            "value": "正方形"
+          },
+          {
+            "id": "1",
+            "value": "圆"
+          }
+        ]
+      }
+    },
+    {
+      "ID": "strokeColor",
+      "Name": "画笔颜色",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "00000000",
+      "EditType": "1",
+      "Group": "",
+      "Description": "设置当前的画笔颜色，颜色值为8位16进制",
+      "Design": {
+        "Type": "Color",
+        "Data": []
+      }
+    },
+    {
+      "ID": "strokeWidth",
+      "Name": "画笔宽度",
+      "Type": "Number",
+      "Type_JavaScript": "Number",
+      "DefaultValue": "1",
+      "EditType": "1",
+      "Group": "",
+      "Description": "设置画笔的宽度",
+      "Design": {
+        "Type": "Text",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "drawArc",
+      "Name": "画弧",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "start",
+          "Name": "左上坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "左上坐标，如：{x:x坐标,x:y坐标}"
+        },
+        {
+          "ID": "end",
+          "Name": "右下坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "右下坐标，如：{x:x坐标,x:y坐标}"
+        },
+        {
+          "ID": "startAngle",
+          "Name": "起始角度",
+          "Type": "Number",
+          "Type_JavaScript": "Number",
+          "Required": 0,
+          "DefaultValue": "0",
+          "Description": "如果为0默认与x轴重合"
+        },
+        {
+          "ID": "sweepAngle",
+          "Name": "扫描角度",
+          "Type": "Number",
+          "Type_JavaScript": "Number",
+          "Required": 0,
+          "DefaultValue": "90",
+          "Description": "默认为90，以起始角度开始，顺时针扫描90度"
+        },
+        {
+          "ID": "useCenter",
+          "Name": "是否包含中心点",
+          "Type": "Bool",
+          "Type_JavaScript": "Bool",
+          "Required": 0,
+          "DefaultValue": "true",
+          "Description": "如果为true，这个弧的区域就会包含中心点"
+        }
+      ]
+    },
+    {
+      "ID": "drawBitmap",
+      "Name": "画图片",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "设置一张图片作为背景",
+      "Paras": [
+        {
+          "ID": "source",
+          "Name": "图片路径",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "支持do_Bitmap对象或data://开头的路径的图片地址"
+        },
+        {
+          "ID": "coord",
+          "Name": "坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 0,
+          "DefaultValue": "{x:0,y:0}",
+          "Description": "从此坐标开始画，如：{x:x坐标,x:y坐标}"
+        }
+      ]
+    },
+    {
+      "ID": "drawCircle",
+      "Name": "画圆",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "point",
+          "Name": "圆心坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "圆心坐标，如：{x:x坐标,x:y坐标}"
+        },
+        {
+          "ID": "radius",
+          "Name": "半径",
+          "Type": "Number",
+          "Type_JavaScript": "Number",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "圆角半径"
+        }
+      ]
+    },
+    {
+      "ID": "drawLine",
+      "Name": "画线",
+      "Description": "传入两点坐标，画一条直线",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "start",
+          "Name": "起始点坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "起始点坐标，如：{x:x坐标,x:y坐标}"
+        },
+        {
+          "ID": "end",
+          "Name": "终点坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "终点坐标，如：{x:x坐标,x:y坐标}"
+        }
+      ]
+    },
+    {
+      "ID": "drawOval",
+      "Name": "画椭圆",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "通过左上坐标与右下坐标定义一个矩形，然后沿着矩形画内切椭圆",
+      "Paras": [
+        {
+          "ID": "start",
+          "Name": "左上坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "左上坐标，如：{x:x坐标,x:y坐标}"
+        },
+        {
+          "ID": "end",
+          "Name": "右下坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "右下坐标，如：{x:x坐标,x:y坐标}"
+        }
+      ]
+    },
+    {
+      "ID": "drawPoint",
+      "Name": "画点",
+      "Description": "支持画多点",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "points",
+          "Name": "点的坐标集合",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "支持点的集合，如：[{x:x坐标,y:y坐标},{x:x1坐标,y:y1坐标}...]"
+        }
+      ]
+    },
+    {
+      "ID": "drawRectangle",
+      "Name": "画矩形",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "通过左上坐标与右下坐标定义一个矩形",
+      "Paras": [
+        {
+          "ID": "start",
+          "Name": "左上坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "左上坐标，如：{x:x坐标,x:y坐标}"
+        },
+        {
+          "ID": "end",
+          "Name": "右下坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "右下坐标，如：{x:x坐标,x:y坐标}"
+        }
+      ]
+    },
+    {
+      "ID": "drawText",
+      "Name": "画文字",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "通过左上坐标与右下坐标定义一个矩形",
+      "Paras": [
+        {
+          "ID": "text",
+          "Name": "文本内容",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": ""
+        },
+        {
+          "ID": "coord",
+          "Name": "坐标",
+          "Type": "Node",
+          "Type_JavaScript": "Node",
+          "Required": 0,
+          "DefaultValue": "{x:0,y:0}",
+          "Description": "从此坐标开始画，如：{x:x坐标,x:y坐标}"
+        },
+        {
+          "ID": "fontStyle",
+          "Name": "字体风格",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 0,
+          "DefaultValue": "normal",
+          "Description": "包含4种类型：normal：常规bold：粗体italic：斜体bold_italic：粗斜体（iOS平台不支持）"
+        },
+        {
+          "ID": "textFlag",
+          "Name": "字体标示",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 0,
+          "DefaultValue": "normal",
+          "Description": "包含3种类型：normal：常规underline ：下划线strikethrough ：删除线"
+        },
+        {
+          "ID": "fontSize",
+          "Name": "字体大小",
+          "Type": "Number",
+          "Type_JavaScript": "Number",
+          "Required": 0,
+          "DefaultValue": "17",
+          "Description": ""
+        },
+        {
+          "ID": "textAlign",
+          "Name": "文本对齐方式",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 0,
+          "DefaultValue": "left",
+          "Description": "对齐方式为以下3种：left 左对齐（默认）；center 居中；right 右对齐。"
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": []
+}

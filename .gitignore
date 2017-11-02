@@ -1,0 +1,10 @@
+*.class
+*.apk
+bin/
+gen/
+.settings/
+proguard/
+*.classpath
+/doExt_do_Canvas/libs/docore.jar
+/doExt_do_Canvas/do_build.xml
+/doExt_do_Canvas/do_Canvas.zip
